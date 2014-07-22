@@ -1,0 +1,9 @@
+- @title = @post.title
+#show
+  .post
+    .title= @post.title
+    .date= time_ago_in_words(@post.created_at || Time.now) + ' 以前'
+    .body= simple_format(@post.body)
+    .details
+      .author Posted by #{@post.account.email}
+%p= link_to '查看全部博文', url_for(:posts, :index)
